@@ -2,6 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const userRoutes  = require('./routes/userRoutes');
+const projectRoutes = require('./routes/projectRoutes');
+const contactRoutes = require('./routes/contactRoutes');
 
 dotenv.config();
 
@@ -15,6 +18,11 @@ app.use(cors({
     methods: ['GET', 'POST'], 
     credentials: true, 
 }));
+
+// Routes
+app.use('/api/users', userRoutes);
+app.use('/api/projects', projectRoutes); 
+app.use('/api/contacts', contactRoutes);
 
 
 // MongoDB Connection
