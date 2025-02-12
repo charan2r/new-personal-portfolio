@@ -6,6 +6,7 @@ const ProjectSchema = new mongoose.Schema({
   technologies: [String],
   githubLink: { type: String },
   liveDemo: { type: String },
+  photo: { type: String, required: true },
 });
 
 module.exports = mongoose.model("Project", ProjectSchema);

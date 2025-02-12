@@ -17,8 +17,8 @@ router.get('/', async (req, res) => {
 // Add a project
 router.post('/add', async (req, res) => {
     try {
-        const { title, description, technologies, githubLink, liveDemo } = req.body;
-        const project = new Project({ title, description, technologies, githubLink, liveDemo });
+        const { title, description, technologies, githubLink, liveDemo, photo } = req.body;
+        const project = new Project({ title, description, technologies, githubLink, liveDemo, photo });
         await project.save();
         res.json({ message: "Project added successfully" });
     } catch (error) {

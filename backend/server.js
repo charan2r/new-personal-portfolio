@@ -5,12 +5,15 @@ const cors = require('cors');
 const userRoutes  = require('./routes/userRoutes');
 const projectRoutes = require('./routes/projectRoutes');
 const contactRoutes = require('./routes/contactRoutes');
+const path = require('path');
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
 
+// Serve static files 
+app.use("/assets", express.static(path.join(__dirname, "public/assets")));
 
 // Enable CORS
 app.use(cors({

@@ -18,6 +18,7 @@ const Home = () => {
 
             {/* This is the Type component */}
             <Type/>
+            
             <a href={CV} download='Charan_Romi_CV.pdf' className="downloadCV">Download CV</a>
               
           </div>

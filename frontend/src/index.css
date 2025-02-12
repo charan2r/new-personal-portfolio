@@ -696,6 +696,51 @@ b{
   border-style: none;
 }
 
+.project-title{
+  margin-bottom: 10px;
+  color: #9067C6;
+}
+
+.technologies {
+  margin-top: 10px;
+}
+
+.technologies ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.technologies li {
+  display: inline-block;
+  margin: 5px;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+.addProjectContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; 
+}
+
+.addProjects {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 10px;
+  background-color: #431f47; 
+  color: #E7E7E7; 
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none; 
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.addProjects:hover {
+  background-color: #1f7442; 
+  transform: scale(1.05); 
+}
 
 
 /* Footer */
@@ -847,3 +892,109 @@ footer h4{
   background-color: #ada159; 
   transform: scale(1.05); 
 }
+
+/* Project Form */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 50%; 
+  max-width: 500px; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  animation: modal-appear 0.3s ease-in-out;
+}
+
+@keyframes modal-appear {
+  0% {
+      opacity: 0;
+      transform: scale(0.8);
+  }
+  100% {
+      opacity: 1;
+      transform: scale(1);
+  }
+}
+
+h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #333;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; 
+}
+
+form label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #555;
+}
+
+form input, form textarea {
+  padding: 10px;
+  font-size: 14px;
+  margin-bottom: 5px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+form input:focus, form textarea:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+form button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #45a049;
+}
+
+form button:active {
+  transform: scale(0.98);
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  color: #dd5b5b;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-button:hover {
+  color: #f44336;
+}
+
