@@ -1,6 +1,32 @@
+/* eslint-disable no-unused-vars */
 import { FaMapMarkerAlt, FaEnvelope, FaPhone } from 'react-icons/fa';
+import axios from 'axios';
+import { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify'; 
+import 'react-toastify/dist/ReactToastify.css'; 
 
 const Contact = () => {
+
+    const [formData, setFormData] = useState({name: "", email: "", message: ""});
+
+    const handleChange = (e) => {
+        setFormData({...formData, [e.target.name]: e.target.value});
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post("http://localhost:5000/api/contacts/submit", formData);
+            toast.success("Message sent successfully!", {position: "top-center"});
+            setFormData({name: "", email: "", message: ""});
+        } catch (error) {
+            toast.error("Failed to send message!", {position: "top-center"});
+    };
+};
+
+    
+
+
     return (
         <div className="ContactPage">
             <section>
@@ -39,15 +65,15 @@ const Contact = () => {
 
                     {/* Contact Form */}
                     <div className="ContactForm">
-                        <form action="submit">
+                        <form onSubmit={handleSubmit}>
                             <div className="formGroup">
-                                <input type="text" name="name" placeholder="Your Name" required />
+                                <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required />
                             </div>
                             <div className="formGroup">
-                                <input type="email" name="email" placeholder="Your Email" required />
+                                <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Your Email" required />
                             </div>
                             <div className="formGroup">
-                                <textarea name="message" placeholder="Your Message" required></textarea>
+                                <textarea name="message" value={formData.message} onChange={handleChange} placeholder="Your Message" required></textarea>
                             </div>
                             <div className="formGroup">
                                 <button type="submit" className="submitButton">Send Message</button>
@@ -56,6 +82,7 @@ const Contact = () => {
                     </div>
                 </div>
             </section>
+            <ToastContainer />
         </div>
     );
 };

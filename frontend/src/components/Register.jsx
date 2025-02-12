@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -65,6 +67,16 @@ const Register = () => {
           <button type="submit" className="register-button">
             Register
           </button>
+
+          <button
+            type="button"
+            className="login-btn"
+            onClick={() => navigate("/")}
+          >
+           Already Registered? Login
+          </button>
+
+
         </form>
       </div>
     </div>
