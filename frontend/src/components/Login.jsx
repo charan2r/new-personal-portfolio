@@ -19,7 +19,7 @@ const Login = () => {
       const data = await response.json();
       if (response.ok) {
         // Store token in localStorage
-        localStorage.setItem("authToken", data.token);
+        localStorage.setItem("authToken", `Bearer ${data.token}`);
         // Redirect to home page
         navigate("/home");
       } else {

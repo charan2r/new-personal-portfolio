@@ -10,6 +10,7 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Register from "./components/Register";
 import Login from "./components/Login";
+import Auth from "./components/Auth";
 import "./index.css";
 
 {/* Common Layout for Main Pages */}
@@ -19,11 +20,10 @@ const Layout = ({ children }) => (
     <Lottie className="bgtwo" animationData={nightsky} loop={true} />
     <Lottie className="bgtemp" animationData={nightsky} loop={true} />
     <Nav />
-      {children} 
+    {children} 
     <Footer />
   </div>
 );
-
 
 function App() {
   return (
@@ -32,13 +32,14 @@ function App() {
         {/* Login & Register Pages */}
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        
-        {/* Main Pages */}
-        <Route path="/home" element={<Layout><Home /></Layout>} />
-        <Route path="/about" element={<Layout><About /></Layout>} />
-        <Route path="/projects" element={<Layout><Projects /></Layout>} />
-        <Route path="/contact" element={<Layout><Contact /></Layout>} />
-        
+
+        {/* Protected Routes */}
+        <Route element={<Auth />}>
+          <Route path="/home" element={<Layout><Home /></Layout>} />
+          <Route path="/about" element={<Layout><About /></Layout>} />
+          <Route path="/projects" element={<Layout><Projects /></Layout>} />
+          <Route path="/contact" element={<Layout><Contact /></Layout>} />
+        </Route>
       </Routes>
     </Router>
   );
