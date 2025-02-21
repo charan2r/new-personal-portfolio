@@ -28,7 +28,7 @@ const ProjectForm = ({ onClose }) => {
 
             await axios.post("http://localhost:5000/api/projects/add", newProject);
             toast.success("Project added successfully!", {position: "top-center"});
-            onClose();
+            setTimeout(() => onClose(), 1000);
         }
         catch(error){
             toast.error("Failed to add project!", {position: "top-center"});
